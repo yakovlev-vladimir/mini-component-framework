@@ -1,0 +1,68 @@
+{
+    "name": "yakovlev-vladimir/mini-component-framework",
+    "description": "Mini Component Framework base on slim",
+    "homepage": "https://github.com/yakovlev-vladimir/mini-component-framework",
+    "authors": [
+        {
+            "name": "Yakovlev Vladimir",
+            "email": "yakovlev.vladimir@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "ext-mbstring": "^8.0",
+        "doctrine/migrations": "^3.3",
+        "doctrine/orm": "^2.10",
+        "laminas/laminas-config-aggregator": "^1.7",
+        "monolog/monolog": "^2.3",
+        "php-di/php-di": "^6.3",
+        "ramsey/uuid": "^4.2",
+        "sentry/sdk": "^3.1",
+        "slim/psr7": "^1.5",
+        "slim/slim": "^4.9",
+        "symfony/cache": "^6.0",
+        "twig/twig": "^3.3",
+        "webmozart/assert": "^1.10"
+    },
+    "require-dev": {
+        "doctrine/data-fixtures": "^1.5",
+        "jangregor/phpstan-prophecy": "^0.8.1",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpstan/extension-installer": "^1.1.0",
+        "phpstan/phpstan": "^0.12.99",
+        "phpunit/phpunit": "^9.5.11",
+        "squizlabs/php_codesniffer": "^3.6",
+        "zeuxisoo/slim-whoops": "^0.7.3"
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "composer/package-versions-deprecated": true
+        }
+    },
+    "autoload": {
+        "files": [
+            "src/env.php"
+        ],
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public",
+        "lint": "phplint",
+        "php-cs-fixer": "php-cs-fixer --config=.php-cs-fixer.php --allow-risky=yes",
+        "psalm": "psalm --config=psalm.xml",
+        "test": "phpunit --colors=always",
+        "test-coverage": "XDEBUG_MODE=coverage phpunit --colors=always --coverage-html var/test/coverage",
+        "app": "php bin/app.php --ansi"
+    }
+}
